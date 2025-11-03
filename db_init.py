@@ -32,10 +32,14 @@ CREATE TABLE IF NOT EXISTS served (
 """)
 
 # Test data
-c.execute("INSERT OR IGNORE INTO users (name, isic_id) VALUES ('Jan Novak', '123456'), ('Petr Svoboda', '654321')")
+c.execute("INSERT OR IGNORE INTO users (name, isic_id) VALUES ('Jan Novak', '123456'), ('Petr Svoboda', '654321'), ('Kryštof', '909228709944')")
 today = str(date.today())
-c.execute("INSERT INTO orders (user_id, meal_type, date) VALUES (1, 'Menu 1', ?), (2, 'Menu 2', ?)", (today, today))
+
+# Zkontroluj, jestli má Kryštof objednávku
+c.execute("SELECT id FROM users WHERE isic_id='909228709944'")
+user_id = c.fetchone()[0]
+c.execute("INSERT OR IGNORE INTO orders (user_id, meal_type, date) VALUES (?, 'Menu 1', ?)", (user_id, today))
 
 conn.commit()
 conn.close()
-print("Databáze připravena.")
+print("Databáze připravena s uživatelem 909228709944.")
