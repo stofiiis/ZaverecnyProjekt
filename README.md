@@ -9,7 +9,6 @@ Po přiložení karty se zobrazí, jaké jídlo má student objednané, a systé
 - Identifikace strávníka podle ISIC karty  
 - Zobrazení objednaného jídla  
 - Upozornění při opakovaném výdeji  
-- Fronta posledních 3 skenů  
 - Možnost běhu na Raspberry Pi s displejem  
 
 ---
@@ -18,13 +17,13 @@ Po přiložení karty se zobrazí, jaké jídlo má student objednané, a systé
 - **Python 3**
 - **SQLite** – lokální databáze
 - **Tkinter** – GUI pro kuchařky
-- *(Volitelně)* **USB čtečka ISIC** – funguje jako klávesnice
+- *(Volitelně)* **RFID-RC522** – čtečka RFID karet
 
 ---
 
 ##  Instalace
 
-### 1️⃣ Klonování projektu
+### Klonování projektu
 ```bash
 git clone https://github.com/tvuj-repo/jidelni_system.git
 cd jidelni_system
